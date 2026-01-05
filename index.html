@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FCFS Scheduling Simulator — Muhammad Owais</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TOAST -->
+  <div id="toast"></div>
+
+  <header>
+    <h1>FCFS Scheduling Simulator</h1>
+    <p>Submitted by Muhammad Owais</p>
+  </header>
+
+  <main class="container">
+
+    <!-- LEFT COLUMN -->
+    <section class="card">
+      <h2>Process Control</h2>
+
+      <label>Process ID</label>
+      <input id="pid" type="text" placeholder="P1">
+
+      <label>Arrival Time</label>
+      <input id="at" type="number" placeholder="0">
+
+      <label>Burst Time</label>
+      <input id="bt" type="number" placeholder="5">
+
+      <!-- PRIORITY SELECT BOX -->
+      <div class="priority-box">
+        <label class="priority-title">
+          Initial Priority (1 = Highest, 10 = Lowest)
+        </label>
+        <select id="priority">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <button class="btn primary" onclick="addProcess()">Add Process</button>
+      <button class="btn danger" onclick="resetAll()">Reset</button>
+    </section>
+
+    <!-- RIGHT COLUMN -->
+    <section class="card">
+      <h2>Schedule Simulation</h2>
+
+      <button class="btn success" onclick="runFCFS()">Run FCFS</button>
+      <button class="btn warning" onclick="animateTimeline()">Start Scheduling</button>
+
+      <!-- Timeline label -->
+      <div id="timeline-label" class="timeline-label"></div>
+      <div id="timeline"></div>
+    </section>
+
+  </main>
+
+  <!-- TABLE -->
+  <section class="table-section">
+    <table>
+      <thead>
+        <tr>
+          <th>PID</th>
+          <th>AT</th>
+          <th>BT</th>
+          <th>Priority</th>
+          <th>ST</th>
+          <th>CT</th>
+          <th>WT</th>
+          <th>TAT</th>
+          <th>RT</th>
+        </tr>
+      </thead>
+      <tbody id="resultTable"></tbody>
+    </table>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
